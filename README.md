@@ -3,11 +3,12 @@
 Creating an embedding network for automatic feature engineering in the Porto Seguro’s Safe Driver Prediction Challenge.
 All categorial and ordinal features are embedded and processed along with numeric features for final output.
 
+All embeddings layers and dense layers are made in a loop. The network is extremely flexible to different number of layers and embeddings. This serves as a very reusable code piece for future competitions. Made in pyTorch.
+
 Network Architecture:
 
 <img src="https://camo.githubusercontent.com/f8ef85636f11960c7b85d465a9844695480ff37f/68747470733a2f2f6769746875622e636f6d2f7869616f7a686f7577616e672f6b6167676c652d706f72746f2d73656775726f2f7261772f383364373934663664636536333234366165663637323039626635393662646165353466656132322f4a7570797465725f6e6e6d6f64656c2f4a7570797465725f696d6167652f4e4e5f6c617965722e706e67" width="700" height="200">
 
-All embeddings layers and dense layers are made in a loop. The network is extremely flexible to different number of layers and embeddings. This serves as a very reusable code piece for future competitions. Made in pyTorch.
 
 1)
 
