@@ -1,6 +1,5 @@
-## Porto-Seguro-s-Safe-Driver-Prediction
+# Representation Learning using Embedding Layers in PyTorch for Porto Seguro’s Safe Driver Prediction Challenge
 
-# Representation Learning using Embedding Layers in PyTorch
 Creating an embedding network for automatic feature engineering in the Porto Seguro’s Safe Driver Prediction Challenge.
 All categorial and ordinal features are embedded and processed along with numeric features for final output.
 
