@@ -12,12 +12,15 @@ The network is extremely flexible to different number of layers and embeddings. 
 1)
 
 We put all category column names in a list.
-Then we create an embedding layer for each of these depending upon thats feature's unique value count in a loop and store them in the dictionary self.cat_dict
+
+Then we create an embedding layer for each of these depending upon that feature's unique value count in a loop and store them in the dictionary self.cat_dict
+
 Each embedding layer is saved in the dictionary according to its feature name so it can be retrieved later
 
 2)
 
 We process the remaining numeric features through any number or size of fc layers given by fc_layers argument
+
 This is done in part so thhe number of embeddings dont vastly outnumber numeric features
 
 3)
