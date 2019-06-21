@@ -36,13 +36,14 @@ We also create a Denoising Autoencoder(DAE) to learn unsupervised representation
 
 We have 38 features initially and after one-hot encoding it becomes 185 
 
-Swap Noise: In order to create artifical noise or data augmentation for tabular data we use 'swap noise' Here we sample and swap from the feature itself with a certain probability. So a probability 0.15 means 15% of features in a row are replaced by values from another row. (chrome-extension://oemmndcbldboiebfnladdacbdfmadadm/https://arxiv.org/pdf/1801.07316.pdf)
+Swap Noise: In order to create artifical noise or data augmentation for tabular data we use 'swap noise' Here we sample and swap from the feature itself with a certain probability. So a probability 0.15 means 15% of features in a row are replaced by values from another row. (https://arxiv.org/pdf/1801.07316.pdf)
  
 GaussRank Normalization: As after one-hot encoding we have around 8 numeric features and the rest are binary or ordinal. Neural networks learn must more efficently when data is normalised and ordinal variables cannot be normalised into gaussian by standard methods but GaussRank can forces it to be normal. What the big deal? With GaussRank I reached a loss half in 2 epochs of that with standard normalization in 500 epochs! I was amazed by the difference. After discussing with my senior I was told it was due to the large presence of categorical variables which made the optimization plane non-smooth. 
 Read more : http://fastml.com/preparing-continuous-features-for-neural-networks-with-rankgauss/
 
-Proceadure:
+GaussRank Proceadure:
 First we compute ranks for each value in a given column (argsort). 
 Then we normalize the ranks to range from -1 to 1. 
 Then we apply the mysterious erfinv function. (https://wiki.analytica.com/index.php?title=ErfInv)
 
+While the winner only used plain MSE loss for all variables, I also experiment with MSE + Binary CE for binary variables. 
