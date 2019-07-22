@@ -1,3 +1,7 @@
+Tabular data is the most commonly used type of data in industry, but deep learning on tabular data receives far less attention than deep learning for computer vision and natural language processing. A common misconception is that neural networks perform poorly on this type of data due to difficulties in training and lack of data augmentation. However many Kaggle competitions have many entries in the top 50 using neural networks and a few competitions have been won using them ([Taxi Predictions Challenge](http://blog.kaggle.com/2015/07/27/taxi-trajectory-winners-interview-1st-place-team-🚕/) ,[Porto-Seguro Safe Drive Prediction Challenge](https://www.kaggle.com/c/porto-seguro-safe-driver-prediction/discussion/44629#latest-532540), [3rd place in Rossman Store Sale Prediction](http://blog.kaggle.com/2016/01/22/rossmann-store-sales-winners-interview-3rd-place-cheng-gui/))
+
+With the increasing release of anonymized data, feature engineering becomes a challenging task. However neural networks are known to be adept at extracting features from seemingly unsolvable tasks. Hence we implement a few neural network acrchitectures that leverage this capability to better learn from anonymized data or data where feature creation is not obvious.
+
 # Representation Learning in PyTorch for Porto Seguro’s Safe Driver Prediction Challenge
 
 Creating an embedding network for automatic feature engineering in the Porto Seguro’s Safe Driver Prediction Challenge.
