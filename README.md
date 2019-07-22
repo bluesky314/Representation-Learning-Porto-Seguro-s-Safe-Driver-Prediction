@@ -36,6 +36,9 @@ We then concatonate the embeddings and fc layers and pass through another set of
 -----
 # Denoising Autoencoder(DAE)
 
+
+<img src="https://github.com/bluesky314/Representation-Learning-Porto-Seguro-s-Safe-Driver-Prediction/blob/master/DAE.png" alt="DAE" width=520 height=311>
+
 We also create a Denoising Autoencoder(DAE) to learn unsupervised representation of our data that can later be used in a supervised model. This model was used to win the Porto Seguro’s Safe Driver Prediction Challenge with some interesting tricks including "swap noise" data augmentation and GaussRank Normalization: https://www.kaggle.com/c/porto-seguro-safe-driver-prediction/discussion/44629 . I learnt alot from this thread and it shows that neural networks are very powerful for tabular data and is a good model to have in ones arsenal. One just needs to know how to train them. The advantage here is once again automated feature generation when features are hard to create which they were as this data was annomozed. 
 
 We have 38 features initially and after one-hot encoding it becomes 185 
