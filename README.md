@@ -6,10 +6,10 @@ With the increasing release of anonymized data, feature engineering becomes a ch
 
 
 # Automatic Embedding Network
-Creating an embedding network for automatic feature engineering in the Porto Seguro’s Safe Driver Prediction Challenge.
-All categorial and ordinal features are embedded and processed along with numeric features for final output.
 
-All embeddings layers and dense layers are made in a loop. The network is extremely flexible to different number of layers and embeddings. This serves as a very reusable code piece for future competitions. Only basic feature engineering such as outlier detection, missing values, normalization and one-hot encoding is required
+We create an automatic embedding network for end to end prediction. [Embeddings layers](https://pytorch.org/tutorials/beginner/nlp/word_embeddings_tutorial.html) are widley sucessful in NLP and we can leverage them to encode categorical data in a fasion similar to Word2vec. All categorial and ordinal features are embedded in a loop and processed along with numeric features for final output. All embeddings layers and dense layers are made in a loop making for a flexible and reusable code structure. The network is also flexible to different number of layers and embeddings. 
+
+Each categorical varible is passed through an embedding layer before being used along with numeric features. This serves as a very reusable code piece for future competitions. Only basic feature engineering such as outlier detection, missing values detection and normalization is required. 
 
 Network Architecture:
 
