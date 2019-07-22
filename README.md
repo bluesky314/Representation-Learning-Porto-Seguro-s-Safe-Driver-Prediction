@@ -1,9 +1,11 @@
+# Representation Learning in PyTorch for Porto Seguro’s Safe Driver Prediction Challenge
+
 Tabular data is the most commonly used type of data in industry, but deep learning on tabular data receives far less attention than deep learning for computer vision and natural language processing. A common misconception is that neural networks perform poorly on this type of data due to difficulties in training and lack of data augmentation. However many Kaggle competitions have many entries in the top 50 using neural networks and a few competitions have been won using them ([Taxi Predictions Challenge](http://blog.kaggle.com/2015/07/27/taxi-trajectory-winners-interview-1st-place-team-🚕/) ,[Porto-Seguro Safe Drive Prediction Challenge](https://www.kaggle.com/c/porto-seguro-safe-driver-prediction/discussion/44629#latest-532540), [3rd place in Rossman Store Sale Prediction](http://blog.kaggle.com/2016/01/22/rossmann-store-sales-winners-interview-3rd-place-cheng-gui/))
 
 With the increasing release of anonymized data, feature engineering becomes a challenging task. However neural networks are known to be adept at extracting features from seemingly unsolvable tasks. Hence we implement a few neural network acrchitectures that leverage this capability to better learn from anonymized data or data where feature creation is not obvious.
 
-# Representation Learning in PyTorch for Porto Seguro’s Safe Driver Prediction Challenge
 
+# Automatic Embedding Network
 Creating an embedding network for automatic feature engineering in the Porto Seguro’s Safe Driver Prediction Challenge.
 All categorial and ordinal features are embedded and processed along with numeric features for final output.
 
@@ -39,13 +41,12 @@ We then concatonate the embeddings and fc layers and pass through another set of
 
 <img src="https://github.com/bluesky314/Representation-Learning-Porto-Seguro-s-Safe-Driver-Prediction/blob/master/DAE.png" alt="DAE" width=520 height=311>
 
-We also create a Denoising Autoencoder(DAE) to learn unsupervised representation of our data that can later be used in a supervised model. This model was used to win the Porto Seguro’s Safe Driver Prediction Challenge with some interesting tricks including "swap noise" data augmentation and GaussRank Normalization: https://www.kaggle.com/c/porto-seguro-safe-driver-prediction/discussion/44629 . I learnt alot from this thread and it shows that neural networks are very powerful for tabular data and is a good model to have in ones arsenal. One just needs to know how to train them. The advantage here is once again automated feature generation when features are hard to create which they were as this data was annomozed. 
+We also create a Denoising Autoencoder(DAE) to learn unsupervised representation of our data that can later be used in a supervised ML model. This model was used to win the Porto Seguro’s Safe Driver Prediction Challenge with some interesting tricks including "swap noise" data augmentation and GaussRank Normalization: https://www.kaggle.com/c/porto-seguro-safe-driver-prediction/discussion/44629 . This thread has alot of knowledge and it shows that if one can overcome the difficulties in training neural networks then they are very powerful for tabular datasets.
 
-We have 38 features initially and after one-hot encoding it becomes 185 
-
-Swap Noise: In order to create artifical noise or data augmentation for tabular data we use 'swap noise' Here we sample and swap from the feature itself with a certain probability. So a probability 0.15 means 15% of features in a row are replaced by values from another row. (https://arxiv.org/pdf/1801.07316.pdf)
+We have around 20 numeric features and 165 one-hot encoded features. 
+**Swap Noise**: In order to create artifical noise or data augmentation for tabular data we use 'swap noise' Here we sample and swap from the feature itself with a certain probability. So a probability 0.15 means 15% of features in a row are replaced by values from another row. (https://arxiv.org/pdf/1801.07316.pdf)
  
-GaussRank Normalization: As after one-hot encoding we have around 8 numeric features and the rest are binary or ordinal. Neural networks learn must more efficently when data is normalised and ordinal variables cannot be normalised into gaussian by standard methods but GaussRank can forces it to be normal. What the big deal? With GaussRank I reached a loss half in 2 epochs of that with standard normalization in 500 epochs! I was amazed by the difference. After discussing with my senior I was told it was due to the large presence of categorical variables which made the optimization plane non-smooth. 
+**GaussRank Normalization**: As after one-hot encoding we have around 8 numeric features and the rest are binary or ordinal. Neural networks learn must more efficently when data is normalised and ordinal variables cannot be normalised into gaussian by standard methods but GaussRank can forces it to be normal. What the big deal? With GaussRank I reached a loss half in 2 epochs of that with standard normalization in 500 epochs! I was amazed by the difference. After discussing with my senior I was told it was due to the large presence of categorical variables which made the optimization plane non-smooth. 
 Read more : http://fastml.com/preparing-continuous-features-for-neural-networks-with-rankgauss/
 
 GaussRank Proceadure:
