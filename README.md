@@ -5,7 +5,7 @@ Tabular data is the most commonly used type of data in industry, but deep learni
 With the increasing release of anonymized data, feature engineering becomes a challenging task. However neural networks are known to be adept at extracting features for seemingly unsolvable tasks. So we implement a few neural network architectures that leverage this capability on anonymized data in the [Porto Seguro’s Safe Driver Prediction
 Challenge](https://www.kaggle.com/c/porto-seguro-safe-driver-prediction) where feature creation is not obvious. The task of  automatically discovering representations needed for classification from raw data is called Representation Learning.
 
-
+More from Rapids: [Rapids with Pytorch: XGBoost vs DNN](https://medium.com/rapids-ai/using-rapids-with-pytorch-e602da018285)
 # Automatic Embedding Network
 
 We create an automatic embedding network for end to end prediction. [Embeddings layers](https://pytorch.org/tutorials/beginner/nlp/word_embeddings_tutorial.html) are widley sucessful in NLP and we can leverage them to encode categorical data in a fasion similar to Word2vec. All categorial and ordinal features are embedded in a loop and processed along with numeric features for final output. All embeddings layers and dense layers are made in a loop making for a flexible and reusable code structure. The network is also flexible to different number of layers and embeddings. 
